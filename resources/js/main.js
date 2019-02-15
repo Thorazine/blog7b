@@ -1,0 +1,1 @@
+// alle algemene js shit

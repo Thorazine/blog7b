@@ -1,0 +1,31 @@
+
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+// Breakpoint sizes as defined in variables
+$breakpoints: (
+	'mobile-portrait': 	'(max-width: 479px)',
+	'tablet-portrait': 	'(max-width: 768px)',
+	'mobile-landscape': '(max-width: 800px)',
+	'tablet': 			'(max-width: 1024px)',
+	'desktop': 			'(min-width: 1025px)',
+	'desktop-hover':	'(min-device-width: 1025px)',
+	'desktop-high':		'(min-height: 1000px)',
+);
