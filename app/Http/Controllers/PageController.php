@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use Illuminate\Http\Request;
+use Cache;
 
 class PageController extends Controller
 {
@@ -22,7 +23,14 @@ class PageController extends Controller
      */
     public function page(Request $request, $slug)
     {
-    	$page = Page::where('slug', $slug)->firstOrFail();
+
+    	$page = Cache::remember('page:'.str_slug($slug), 10, function() use ($slug) {
+            return Page::where('slug', $slug)
+                ->with('image')
+                ->firstOrFail();
+        });
+
+
 
         return view('page')
         	->with('page', $page);

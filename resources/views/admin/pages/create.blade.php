@@ -3,7 +3,7 @@
 
 @section('content')
 
-    {!! Form::open(['route' => 'pages.store', 'method' => 'POST']) !!}
+    {!! Form::open(['route' => 'admin.pages.store', 'method' => 'POST', 'files' => true]) !!}
 
         <div class="form-group row">
             <label class="col-sm-3">
@@ -14,7 +14,15 @@
                     <div class="input-group-text">{{ route('page', ['slug' => '/']) }}/</div>
                 </div>
                 {!! Form::text('slug', '', ['class' => 'form-control', 'autocomplete' => 'off']); !!}
+            </div>
+        </div>
 
+        <div class="form-group row">
+            <label class="col-sm-3">
+                Image
+            </label>
+            <div class="col-sm-9">
+                {!! Form::file('image', ['class' => 'form-control-file', 'autocomplete' => 'off']); !!}
             </div>
         </div>
 
