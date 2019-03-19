@@ -50,7 +50,7 @@ class PageController extends Controller
             // logica
             $page = new Page;
             $page->title = $request->title;
-            $page->slug = $request->slug;
+            $page->slug = str_slug($request->slug);
             $page->body = $request->body;
             $page->active = ($request->active) ? 1 : 0;
             $page->save();
@@ -112,15 +112,25 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PageUpdate $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'slug' => 'required|max:80|unique:pages,slug,'.$id,
+            'image' => '',
+            'title' => 'required|max:80',
+            'body' => 'required|max:65000',
+            'active' => 'boolean',
+        ]);
+
         try {
+
+
             DB::beginTransaction();
 
             // logica
             $page = Page::findOrFail($id);
             $page->title = $request->title;
-            $page->slug = $request->slug;
+            $page->slug = str_slug($request->slug);
             $page->body = $request->body;
             $page->active = ($request->active) ? 1 : 0;
             $page->save();

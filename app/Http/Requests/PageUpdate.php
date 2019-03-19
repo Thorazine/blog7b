@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Request;
 
 class PageUpdate extends FormRequest
 {
@@ -24,11 +25,7 @@ class PageUpdate extends FormRequest
     public function rules()
     {
         return [
-            'slug' => '',
-            'image' => '',
-            'title' => '',
-            'body' => '',
-            'active' => '',
+
         ];
     }
 }
