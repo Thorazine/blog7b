@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageInsert;
+use App\Http\Requests\PageUpdate;
 use App\Page;
 use App\Image;
 use Exception;
@@ -110,7 +112,7 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PageUpdate $request, $id)
     {
         try {
             DB::beginTransaction();
